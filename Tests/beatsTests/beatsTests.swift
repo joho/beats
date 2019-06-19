@@ -2,14 +2,19 @@ import XCTest
 @testable import beats
 
 final class beatsTests: XCTestCase {
-    func testAtUnix() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(beats().atUnix(unixTime: 1560486779), 231)
+    func testInt() {
+        let date = Date(timeIntervalSince1970: 1560486779)
+        XCTAssertEqual(beats(date: date).int(), 231)
+    }
+
+    func testString() {
+        
+        let date = Date(timeIntervalSince1970: 1560470079)
+        XCTAssertEqual(beats(date: date).string(), "@037")
     }
 
     static var allTests = [
-        ("testAtUnix", testAtUnix),
+        ("testInt", testInt),
+        ("testString", testString),
     ]
 }

@@ -1,22 +1,19 @@
 import Foundation
 
-struct beats {
-    func atUnix(unixTime: Double) -> Int {
-        let date = Date(timeIntervalSince1970: unixTime)
-        return atDate(date: date)
+class beats {
+    let date: Date
+
+    init(date: Date = Date()){
+        self.date = date
     }
 
-    func atNow() -> Int {
-        return atDate(date: Date())
-    }
-
-    func atDate(date: Date) -> Int {
+    func int() -> Int {
         var cal = Calendar.current;
         cal.timeZone = TimeZone(identifier: "UTC")!
 
-        var hours = cal.component(.hour, from: date)
-        let minutes = cal.component(.minute, from: date)
-        let seconds = cal.component(.second, from: date)
+        var hours = cal.component(.hour, from: self.date)
+        let minutes = cal.component(.minute, from: self.date)
+        let seconds = cal.component(.second, from: self.date)
 
         hours = (hours == 23) ? 0 : hours + 1
 
@@ -31,4 +28,9 @@ struct beats {
 
         return result
     }
+
+    func string() -> String {
+        return String(format: "@%03d", int())
+    }
+
 }
