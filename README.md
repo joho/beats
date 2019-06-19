@@ -7,9 +7,10 @@ Usage:
 ```swift
 import beats
 
-let now = beats().atNow()
-let fromUnix = beats().atUnix(unixTime: 1560486779)
-let fromDate = beats().atDate(date: Date())
+let beats = beats(date: Date())
+// or let beats = beats()
+let asNumber = beats.int() // 32
+let asString = beats.string() // @032
 ```
 
 Have fun.

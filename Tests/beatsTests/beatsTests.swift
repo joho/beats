@@ -8,7 +8,6 @@ final class beatsTests: XCTestCase {
     }
 
     func testString() {
-        
         let date = Date(timeIntervalSince1970: 1560470079)
         XCTAssertEqual(beats(date: date).string(), "@037")
     }
